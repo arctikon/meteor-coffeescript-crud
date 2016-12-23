@@ -1,0 +1,49 @@
+<template name="buyerModal">
+  <div id="buyerModal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form class="buyer-form" id="buyer-form" name="buyer-form">
+      <div class="modal-header">
+        <button type="button" class="close closeBuyerModal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Buyer</h4>
+      </div>
+
+      <div class="modal-body">
+        
+        <div style="margin-bottom: 50px;">
+          <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
+          <div class="col-sm-10">
+            <input  class="form-control" style="margin-top: -10px;" placeholder="Name" name="name">
+          </div>
+        </div>
+        <div style="margin-bottom: 100px;"> 
+          <label for="inputEmail3" class="col-sm-2 control-label">Phone</label>
+          <div class="col-sm-10">
+            <input class="form-control" style="margin-top: -10px;" placeholder="Phone" name="phone">
+          </div>
+        </div>
+        <div style="margin-bottom: 100px;"> 
+          <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+          <div class="col-sm-10">
+            <input class="form-control" style="margin-top: -10px;" placeholder="Email" name="email">
+          </div>
+        </div>
+        <br>
+      </div>
+
+      {{#if warnMessage }}
+      <div class="alert alert-warning">
+        <strong>Warning!</strong> {{warnMessage}}
+      </div>
+      {{/if}}
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default closeBuyerModal" data-dismiss="modal">Close</button>
+        <button type="submit"  class="btn btn-primary">Save changes</button>
+      </div>
+
+     </form>
+    </div>
+  </div>
+</div>
+</template>

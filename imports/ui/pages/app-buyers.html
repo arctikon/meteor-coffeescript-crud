@@ -1,0 +1,22 @@
+<template name="App_buyers">
+
+{{#if currentUser }}
+  <a style="margin-bottom: 30px;" class="btn btn-default _buyerModalShow" role="button">Add Buyer</a>
+  {{#if showDeleteButton }}<a style="margin-bottom: 30px;" class="btn btn-warning _buyerDeleteAll" role="button">Delete all</a>{{/if}}
+  {{#each buyers}}
+  <div class="panel panel-default"> 
+    <div class="panel-heading" role="tab" id="buyerContainer"> 
+      <h4 class="panel-title">
+        <input data-id="{{_id}}" name="deleteBuyers" type="checkbox" class="deleteBuyers" />
+        <a href="#collapseListGroup{{index}}" class="collapsed" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseListGroup1"> {{name}} </a>
+        <a data-id="{{_id}}" data-name="{{name}}" data-phone="{{phone}}" data-email="{{email}}" class="btn btn-default _buyerEdit"><span class="glyphicon glyphicon-edit"></span>Edit</a>
+        <a data-id="{{_id}}" class="btn btn-default _buyerDelete"><span class="glyphicon glyphicon-remove"></span>Delete</a>    
+      </h4> 
+      </div> 
+  </div>
+  {{/each}}
+  {{> buyerModal}}
+  {{> buyerEditModal}}
+  {{> buyerDeleteModal}}
+{{/if}}
+</template>

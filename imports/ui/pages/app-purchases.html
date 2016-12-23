@@ -1,0 +1,22 @@
+<template name="App_purchases">
+
+{{#if currentUser }}
+  <a style="margin-bottom: 30px;" class="btn btn-default _purchaseModalShow" role="button">Add Purchase</a>
+  {{#if showDeleteButton }}<a style="margin-bottom: 30px;" class="btn btn-warning _purchaseDeleteAll" role="button">Delete all</a>{{/if}}
+  {{#each purchases}}
+  <div class="panel panel-default"> 
+    <div class="panel-heading" role="tab" id="purchContainer"> 
+      <h4 class="panel-title">
+        <input data-id="{{_id}}" name="deletePurchase" type="checkbox" class="deletePurchases" />
+        <a class="collapsed" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseListGroup1"> Purchase name: {{name}} ,  Buyer's info: Name - {{buyerObj.name}}</a>
+        <a data-id="{{_id}}" data-name="{{name}}" data-price="{{price}}" data-buyer-id="{{buyerId}}" class="btn btn-default _purchaseEdit"><span class="glyphicon glyphicon-edit"></span>Edit</a>
+        <a data-id="{{_id}}" class="btn btn-default _purchaseDelete"><span class="glyphicon glyphicon-remove"></span>Delete</a>    
+      </h4> 
+      </div> 
+  </div>
+  {{/each}}
+  {{> purchaseModal}}
+  {{> purchaseEditModal}}
+  {{> purchaseDeleteModal}}
+{{/if}}
+</template>

@@ -1,0 +1,59 @@
+<template name="purchaseModal">
+  <div id="purchaseModal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form class="purchase-form" id="purchase-form" name="purchase-form">
+      <div class="modal-header">
+        <button type="button" class="close closePurchaseModal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Purchase</h4>
+      </div>
+
+      <div class="modal-body">
+        
+        <div style="margin-bottom: 50px;">
+          <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
+          <div class="col-sm-10">
+            <input  class="form-control" style="margin-top: -10px;" placeholder="Name" name="name">
+          </div>
+        </div>
+        <div style="margin-bottom: 100px;"> 
+          <label for="inputEmail3" class="col-sm-2 control-label">Price</label>
+          <div class="col-sm-10">
+            <input class="form-control" type="number" style="margin-top: -10px;" placeholder="Price" name="price">
+          </div>
+        </div>
+        <div style="margin-bottom: 150px;">
+          <label for="inputEmail3" class="col-sm-2 control-label">Buyer</label>
+          <div class="col-sm-10">
+            <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                {{choosedBuyer}}
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="height: auto;max-height: 100px;overflow-x: hidden;">
+                {{#each buyer in buyers}}
+                  <li data-id={{buyer._id}} data-name={{buyer.name}} class="list-group-item _chooseBuyer">{{buyer.name}}</li>
+                {{/each}}
+              </ul>
+            </div> 
+          </div>
+        </div>
+        <br>
+      </div>
+
+      {{#if warnMessage }}
+      <div class="alert alert-warning">
+        <strong>Warning!</strong> {{warnMessage}}
+      </div>
+      {{/if}}
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default closePurchaseModal" data-dismiss="modal">Close</button>
+        <button type="submit"  class="btn btn-primary">Save changes</button>
+      </div>
+
+     </form>
+    </div>
+  </div>
+</div>
+</template>

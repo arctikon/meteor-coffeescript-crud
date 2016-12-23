@@ -1,2 +1,2 @@
-# meteor-memo
-Simple meteor memo app with bootstrap and blaze
+# meteor-coffeescript-crud
+Simple meteor crud app with coffeescript
